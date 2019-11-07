@@ -56,13 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-   int number;
+    int number;
     TextView tv = this.findViewById(R.id.textView);
+    int correctGuesses;
 
     public void on_button_click (View view) {
-
-
-
 
         Random r = new Random();
         number = r.nextInt(6);
@@ -78,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (mode == number ){
             tv.setText("Congratulations!");
+            correctGuesses++;
+
+            TextView score = this.findViewById(R.id.textView2);
+
+            score.setText(Integer.toString(correctGuesses))
         }
     }
 
