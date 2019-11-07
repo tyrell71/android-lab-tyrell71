@@ -11,6 +11,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.Random;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,14 +56,29 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void on_button_click (View view){
+   int number;
+    TextView tv = this.findViewById(R.id.textView);
 
-        TextView tv = this.findViewById(R.id.numberTextView);
+    public void on_button_click (View view) {
+
+
+
 
         Random r = new Random();
-        int number = r.nextInt(6);
+        number = r.nextInt(6);
 
         tv.setText(Integer.toString(number));
 
     }
+
+    public void whenClicked (View view) {
+
+        Scanner userInput = new Scanner(System.in);
+        int mode = userInput.nextInt();
+
+        if (mode == number ){
+            tv.setText("Congratulations!");
+        }
+    }
+
 }
